@@ -7,7 +7,6 @@ dependencies:
     repository: oci://ghcr.io/shukshuk02/helm
     version: "1.0.0"
     alias: deploy1
-dependencies:
   - name: workshop-test
     repository: "oci://ghcr.io/shukshuk02/helm"
     version: "1.0.0"
