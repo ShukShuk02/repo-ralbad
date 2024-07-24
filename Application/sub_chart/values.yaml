@@ -4,7 +4,7 @@ deploy1:
   containers:
       containerPort: 8080
       image: 'oci://ghcr.io/shukshuk02/helm'
-      tag: 'chart_v2'
+      tag: '1.0.0'
 
   service:
       servicePort: 8080
