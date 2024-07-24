@@ -3,7 +3,7 @@ deploy1:
 
   containers:
       containerPort: 8080
-      image: 'quay.io/argo-helm-workshop/workshop-app'
+      image: 'oci://ghcr.io/shukshuk02/helm'
       tag: 'chart_v2'
 
   service:
