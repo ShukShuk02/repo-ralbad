@@ -3,7 +3,7 @@ deploy1:
 
   containers:
       containerPort: 8080
-      image: 'oci://ghcr.io/shukshuk02/helm'
+      image: 'oci://ghcr.io/shukshuk02/helm/repo-ralbad'
       tag: '1.0.0'
 
   service:
