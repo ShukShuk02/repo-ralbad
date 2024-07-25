@@ -2,13 +2,15 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: {{ .Chart.Name }}
-spec:
+spec:    
   replicas: {{ .Values.ReplicaNumber }}
   selector:
     matchLabels:
       app: {{ .Chart.Name }}
   template:
     metadata:
+      annotations:
+        rollme: {{ randAlphaNum 4 | quote }}
       labels:
         app: {{ .Chart.Name }}
     spec:
