@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       annotations:
-        rollme: {{ randAlphaNum 4 | quote }}
+        argocd.argoproj.io/sync-options: Force=true,Replace=true
       labels:
         app: {{ .Chart.Name }}
     spec:
