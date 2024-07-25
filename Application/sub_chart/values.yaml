@@ -1,21 +1,24 @@
 deploy1: 
   ReplicaNumber: 1
-
+  argocd:
+    syncwave:
+      deployment: 5
   containers:
-      containerPort: 8080
-      image: 'quay.io/shukshuk/harta-barta'
-      tag: 'chart_v1'
-
+    containerPort: 8080
+    image: 'quay.io/shukshuk/harta-barta'
+    tag: 'chart_v1'
   service:
-      servicePort: 8080
+    servicePort: 8080
 
 deploy2: 
   ReplicaNumber: 1
-
+  argocd:
+    syncwave:
+      deployment: 10
   containers:
-      containerPort: 8080
-      image: 'quay.io/shukshuk/harta-barta'
-      tag: 'chart_v1'
+    containerPort: 8080
+    image: 'quay.io/shukshuk/harta-barta'
+    tag: 'chart_v1'
 
   service:
-      servicePort: 8080
+    servicePort: 8080

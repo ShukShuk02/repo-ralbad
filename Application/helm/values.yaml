@@ -1,5 +1,9 @@
 ReplicaNumber: 1
 
+argocd:
+  syncwave:
+    deployment: 5
+
 containers:
   containerPort: 8080
   image: 'quay.io/shukshuk/harta-barta'
