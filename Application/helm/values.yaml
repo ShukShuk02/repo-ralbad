@@ -7,3 +7,29 @@ containers:
 
 service:
   servicePort: 8080
+
+volume:
+  mount:
+    path: "/tmp/html"
+
+probes:
+  readiness:
+    probeMapping:
+      path: "/health/readiness"
+      scheme: HTTP
+    probeConfig:
+      initialDelaySeconds: 1
+      timeoutSeconds: 1
+      periodSeconds: 10
+      successThreshold: 1
+      failureThreshold: 3
+  liveness:
+    probeMapping:
+      path: "/health/liveliness"
+      scheme: HTTP
+    probeConfig:
+      initialDelaySeconds: 1
+      timeoutSeconds: 1
+      periodSeconds: 10
+      successThreshold: 1
+      failureThreshold: 3

@@ -24,31 +24,16 @@ spec:
             - name: PORT
               value: {{ .Values.containers.containerPort | quote }}
           livenessProbe:
-            httpGet:
-              path: /health/liveliness
-              port: {{ .Values.containers.containerPort }}
-              scheme: HTTP
-            initialDelaySeconds: 1
-            timeoutSeconds: 1
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3
+            {{- include "app.livenessProbe" . | nindent 12  }}
           readinessProbe:
-            httpGet:
-              path: /health/readiness # this check the application url path
-              port: {{ .Values.containers.containerPort  }} # In which port the Application is listening
-              scheme: HTTP
-            initialDelaySeconds: 1 # the time is waiting befor testing the application path
-            timeoutSeconds: 1 # the time for timeout
-            periodSeconds: 10 # the abount of time to wait between checks
-            successThreshold: 1 # count to decalre seccessfull 
-            failureThreshold: 3 # count to decalre failure 
+            {{- include "app.readinessProbe" . | nindent 12  }}
           name: {{ .Chart.Name }}
           volumeMounts:
             - name: index-html
-              mountPath: /tmp/html
+              mountPath: {{ .Values.volume.mount.path }}
           ports:
-            - containerPort: {{ .Values.containers.containerPort }}
+            - name: http
+              containerPort: {{ .Values.containers.containerPort }}
               protocol: TCP
           imagePullPolicy: IfNotPresent
           image: {{ .Values.containers.image }}:{{ .Values.containers.tag }}
